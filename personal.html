@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>John Clarke Ballega | Personal Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/personal.css" />
+  </head>
+  <body>
+    <div class="bg-field"></div>
+
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="nav-mark"><a href="#top">Clarke Dev</a></div>
+        <ul class="nav-links">
+          <li></li>
+          <li><a href="#about">about</a></li>
+          <li><a href="#skills">skills</a></li>
+          <li><a href="#experience">experience</a></li>
+          <li><a href="#projects">projects</a></li>
+          <li><a href="#contributions">contributions</a></li>
+          <li><a href="#resume">resume</a></li>
+          <li><a href="#contact">contact</a></li>
+          <li></li>
+        </ul>
+        <div class="theme-toggle" role="group" aria-label="Theme">
+          <button
+            type="button"
+            data-theme-choice="light"
+            aria-label="Light theme"
+          >
+            light
+          </button>
+          <button
+            type="button"
+            data-theme-choice="auto"
+            aria-label="Match system theme"
+          >
+            auto
+          </button>
+          <button
+            type="button"
+            data-theme-choice="dark"
+            aria-label="Dark theme"
+          >
+            dark
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="shell">
+      <div class="thread-col">
+        <div class="thread-line"></div>
+        <div class="thread-node"></div>
+      </div>
+
+      <div class="content-col">
+        <section class="hero" id="top">
+          <div>
+            <h1 class="hero-name">
+              JOHN CLARKE BALLEGA
+              <svg
+                class="squiggle"
+                viewBox="0 0 190 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 9C20 2 32 2 46 9C60 16 72 16 86 9C100 2 112 2 126 9C140 16 152 16 166 9C172 6.5 176 6 188 8"
+                  stroke="#d68c2e"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </h1>
+            <p class="hero-role">
+              aspiring machine learning engineer & full-stack developer
+            </p>
+            <p class="hero-bio">
+              I build things at the intersection of data and interface from
+              training models to shipping the products that put them in front of
+              people. Lately I'm most interested in making ML systems feel less
+              like black boxes and more like tools people actually trust.
+            </p>
+            <div class="hero-cta">
+              <a class="btn primary" href="#resume">View résumé</a>
+              <a class="btn" href="Mika_Alonzo_Resume.pdf" download
+                >Download PDF ↓</a
+              >
+            </div>
+          </div>
+
+          <svg
+            class="hero-graphic"
+            viewBox="0 0 280 260"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g class="edge"><path d="M40 40 L140 90" /></g>
+            <g class="edge"><path d="M40 130 L140 90" /></g>
+            <g class="edge"><path d="M40 220 L140 90" /></g>
+            <g class="edge"><path d="M40 40 L140 170" /></g>
+            <g class="edge"><path d="M40 130 L140 170" /></g>
+            <g class="edge"><path d="M40 220 L140 170" /></g>
+            <g class="edge"><path d="M140 90 L240 60" /></g>
+            <g class="edge"><path d="M140 90 L240 130" /></g>
+            <g class="edge"><path d="M140 170 L240 130" /></g>
+            <g class="edge"><path d="M140 170 L240 200" /></g>
+            <path class="edge" d="M40 40 L140 90" />
+            <path class="edge" d="M40 130 L140 90" />
+            <path class="edge" d="M40 220 L140 90" />
+            <path class="edge" d="M40 40 L140 170" />
+            <path class="edge" d="M40 130 L140 170" />
+            <path class="edge" d="M40 220 L140 170" />
+            <path class="edge" d="M140 90 L240 60" />
+            <path class="edge" d="M140 90 L240 130" />
+            <path class="edge" d="M140 170 L240 130" />
+            <path class="edge" d="M140 170 L240 200" />
+
+            <circle
+              class="node"
+              cx="40"
+              cy="40"
+              r="6"
+              style="animation-delay: 0.1s"
+            />
+            <circle
+              class="node"
+              cx="40"
+              cy="130"
+              r="6"
+              style="animation-delay: 0.2s"
+            />
+            <circle
+              class="node"
+              cx="40"
+              cy="220"
+              r="6"
+              style="animation-delay: 0.3s"
+            />
+            <circle
+              class="node"
+              cx="140"
+              cy="90"
+              r="6"
+              style="animation-delay: 0.4s"
+            />
+            <circle
+              class="node warm"
+              cx="140"
+              cy="170"
+              r="6"
+              style="animation-delay: 0.5s"
+            />
+            <circle
+              class="node"
+              cx="240"
+              cy="60"
+              r="6"
+              style="animation-delay: 0.6s"
+            />
+            <circle
+              class="node"
+              cx="240"
+              cy="130"
+              r="6"
+              style="animation-delay: 0.7s"
+            />
+            <circle
+              class="node"
+              cx="240"
+              cy="200"
+              r="6"
+              style="animation-delay: 0.8s"
+            />
+          </svg>
+        </section>
+
+        <section id="about">
+          <p class="eyebrow">about</p>
+          <div class="about-grid">
+            <div class="avatar">
+              <div class="avatar-inner">
+                <img src="/assets/img/image.png" alt="avatar" />
+              </div>
+            </div>
+            <div class="about-text">
+              <p>
+                Based in the Philippines, currently finishing a degree in
+                Information Technology while working on machine learning
+                projects that pair cleanly with real interfaces not just
+                notebooks. I like the parts of engineering that sit between
+                disciplines: the model that needs a dashboard, the schema that
+                needs a story.
+              </p>
+              <p>
+                Outside of code: sketchbooks, long walks with bad instant
+                coffee, and an ongoing argument with myself about whether
+                semicolons matter.
+              </p>
+              <p class="note">— still debugging, still curious.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills">
+          <p class="eyebrow">skills</p>
+          <div class="skill-group langs">
+            <p class="skill-label">languages</p>
+            <div class="skill-tags">
+              <span class="tag">HTML / CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">Java</span>
+              <span class="tag">SQL</span>
+              <span class="tag">PHP</span>
+            </div>
+          </div>
+          <div class="skill-group ml">
+            <p class="skill-label">ml & data</p>
+            <div class="skill-tags">
+              <span class="tag">scikit-learn</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">Data Visualization</span>
+            </div>
+          </div>
+          <div class="skill-group tools">
+            <p class="skill-label">tools & platforms</p>
+            <div class="skill-tags">
+              <span class="tag">Git</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Excel</span>
+              <span class="tag">Figma</span>
+              <span class="tag">Canva</span>
+              <span class="tag">Cisco</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Maven</span>
+            </div>
+          </div>
+          <div class="skill-group frameworks">
+            <p class="skill-label">frameworks</p>
+            <div class="skill-tags">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Django</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="experience">
+          <p class="eyebrow">experience & education</p>
+          <div class="tl">
+            <div class="tl-item">
+              <p class="tl-date">2022 — present</p>
+              <p class="tl-title">B.S. Information Technology</p>
+              <p class="tl-org">FullBright College</p>
+              <p class="tl-desc">
+                Coursework in networking, databases, and software engineering,
+                with independent self study in applied machine learning.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects">
+          <p class="eyebrow">projects</p>
+          <div class="proj-grid">
+            <div class="proj-card">
+              <p class="proj-title">Boarding House Management System</p>
+              <p class="proj-desc">
+                A Boarding House System with three roles such as admin,
+                landlord, and tenant with a booking, payment, maintenance
+                request, announcement, room tabs and log out system.
+              </p>
+              <div class="proj-stack">
+                <span>HMTL/CSS</span><span>JavaScript</span><span>SQL</span
+                ><span>Java</span>
+              </div>
+            </div>
+            <div class="proj-card">
+              <p class="proj-title">Paint App Website</p>
+              <p class="proj-desc">
+                A simple paint app with multi color, different drawing button,
+                three shape button, undo, delete, and save button, with
+                adjustable size.
+              </p>
+              <div class="proj-stack">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+            </div>
+            <div class="proj-card">
+              <p class="proj-title">Calculator</p>
+              <p class="proj-desc">
+                A simple calculator with simple ui design.
+              </p>
+              <div class="proj-stack">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+            </div>
+            <div class="proj-card">
+              <p class="proj-title">Student Registration Form</p>
+              <p class="proj-desc">
+                A simple student registration form with submit, update, and
+                delete function with simple log in page.
+              </p>
+              <div class="proj-stack">
+                <span>Tkinter</span><span>Python</span
+                ><span>Excel Database</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contributions">
+          <p class="eyebrow">contributions</p>
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span>github.com/clrkrio-dev</span>
+              <span>last 12 months</span>
+            </div>
+            <div class="terminal-body gh-body">
+              <img
+                class="gh-chart gh-light"
+                src="https://ghchart.rshah.org/33509e/clrkrio-dev"
+                alt="clrkrio-dev's GitHub contribution graph"
+                loading="lazy"
+                width="722"
+                height="112"
+              />
+              <img
+                class="gh-chart gh-dark"
+                src="https://ghchart.rshah.org/7d97e0/clrkrio-dev"
+                alt="clrkrio-dev's GitHub contribution graph"
+                loading="lazy"
+                width="722"
+                height="112"
+              />
+            </div>
+          </div>
+          <div class="resume-actions">
+            <a
+              class="btn"
+              href="https://github.com/clrkrio-dev"
+              target="_blank"
+              rel="noopener"
+              >View GitHub profile ↗</a
+            >
+            <p class="resume-note">dark squares, occasional chaos.</p>
+          </div>
+        </section>
+
+        <section id="resume">
+          <p class="eyebrow">résumé</p>
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span>john clarke ballega — resume.pdf</span>
+              <span>1 page</span>
+            </div>
+            <div class="terminal-body">
+              <div>
+                <span class="k">name</span>&nbsp;&nbsp;&nbsp;&nbsp;<span
+                  class="v"
+                  >John Clarke Ballega</span
+                >
+              </div>
+              <div>
+                <span class="k">role</span>&nbsp;&nbsp;&nbsp;&nbsp;<span
+                  class="v"
+                  >Machine Learning Engineer / Full-Stack Developer</span
+                >
+              </div>
+              <div>
+                <span class="k">based</span>&nbsp;&nbsp;&nbsp;<span class="v"
+                  >Philippines</span
+                >
+              </div>
+              <div>
+                <span class="k">focus</span>&nbsp;&nbsp;&nbsp;<span class="v"
+                  >applied ML, data-driven interfaces, backend systems, frontend
+                  design</span
+                >
+              </div>
+              <div>
+                <span class="k">status</span>&nbsp;&nbsp;<span class="v"
+                  >open to internships & junior roles</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="resume-actions">
+            <a class="btn primary" href="#resume" download
+              >Download résumé (PDF) ↓</a
+            >
+            <p class="resume-note">the honest version, no buzzwords added.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer id="contact">
+      <div class="footer-inner">
+        <p class="eyebrow">contact</p>
+        <h2 style="font-size: 28px">Say hello, or send a bug report.</h2>
+        <div class="footer-links">
+          <a href="mailto:johnclarkeballega261@gmail.com"
+            >johnclarkeballega261@email.com</a
+          >
+          <a href="https://github.com/clrkrio-dev">github.com/clrkrio-dev</a>
+        </div>
+        <p class="signoff">Thanks for reading this far — go build something.</p>
+      </div>
+    </footer>
+
+    <script src="/js/personal.js"></script>
+  </body>
+</html>
