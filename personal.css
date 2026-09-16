@@ -1070,23 +1070,16 @@ header.nav {
 
 .proj-desc {
   position: relative;
-
   margin-bottom: 14px;
-
   color: var(--ink-soft);
-
   font-size: 14.5px;
 }
 
 .proj-stack {
   position: relative;
-
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 6px;
-
   font-family: var(--mono);
   font-size: 12px;
 }
@@ -1097,13 +1090,9 @@ header.nav {
 
 .proj-stack span:not(:last-child)::after {
   content: " · ";
-
   color: var(--ink-soft);
 }
 
-/* ============================================================
-   CONTRIBUTIONS / TERMINAL
-   ============================================================ */
 
 #contributions {
   padding-bottom: 30px;
