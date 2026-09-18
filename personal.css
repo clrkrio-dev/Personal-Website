@@ -536,9 +536,8 @@ header.nav {
   justify-content: center;
   color: var(--signal);
 }
-.interest-icon svg {
-  width: 24px;
-  height: 24px;
+.interest-icon i {
+  font-size: 24px;
 }
 .interest-title {
   font-size: 14.5px;
