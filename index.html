@@ -31,35 +31,43 @@
           <li><a href="#about">about</a></li>
           <li><a href="#skills">skills</a></li>
           <li><a href="#experience">experience</a></li>
+          <li><a href="#certifications">certifications</a></li>
           <li><a href="#projects">projects</a></li>
           <li><a href="#contributions">contributions</a></li>
           <li><a href="#resume">resume</a></li>
           <li><a href="#contact">contact</a></li>
           <li></li>
         </ul>
-        <div class="theme-toggle" role="group" aria-label="Theme">
-          <button
-            type="button"
-            data-theme-choice="light"
-            aria-label="Light theme"
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+        >
+          <svg
+            class="icon-sun"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
           >
-            light
-          </button>
-          <button
-            type="button"
-            data-theme-choice="auto"
-            aria-label="Match system theme"
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+            />
+          </svg>
+          <svg
+            class="icon-moon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           >
-            auto
-          </button>
-          <button
-            type="button"
-            data-theme-choice="dark"
-            aria-label="Dark theme"
-          >
-            dark
-          </button>
-        </div>
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+          </svg>
+        </button>
       </div>
     </header>
 
@@ -215,6 +223,140 @@
           </div>
         </section>
 
+        <section id="interests">
+          <p class="eyebrow">off the clock</p>
+          <div class="interest-grid">
+            <div class="interest-card">
+              <div class="interest-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                  <path d="M2 2l7.586 7.586" />
+                  <circle cx="11" cy="11" r="2" />
+                </svg>
+              </div>
+              <p class="interest-title">Sketchbooks</p>
+              <p class="interest-desc">
+                A pocket notebook for loose ideas, UI doodles, and things that
+                don't need to compile.
+              </p>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M17 4a3 3 0 013 3c0 4-3 6-8 12-5-6-8-8-8-12a3 3 0 013-3c1.7 0 3 1 4 2.3C12 5 13.3 4 15 4z"
+                  />
+                  <path d="M8 15c1.5-2 3-2 4 0" />
+                </svg>
+              </div>
+              <p class="interest-title">Long walks, bad coffee</p>
+              <p class="interest-desc">
+                Instant coffee and no headphones — where most of the actual
+                debugging happens.
+              </p>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+                  <path
+                    d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"
+                  />
+                </svg>
+              </div>
+              <p class="interest-title">Sci-fi &amp; speculative fiction</p>
+              <p class="interest-desc">
+                Anything that treats a "what if" like an engineering problem
+                worth solving.
+              </p>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="14" rx="2" />
+                  <path
+                    d="M7 8h2M11 8h2M15 8h2M7 11h2M11 11h2M15 11h2M7 14h10"
+                  />
+                </svg>
+              </div>
+              <p class="interest-title">Mechanical keyboards</p>
+              <p class="interest-desc">
+                Currently three switch types deep and still not sure which one
+                is "the one."
+              </p>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 21V3l16 9-16 9z" fill="none" />
+                </svg>
+              </div>
+              <p class="interest-title">Chess</p>
+              <p class="interest-desc">
+                Slow games, worse openings, the occasional puzzle rush at 1am.
+              </p>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="7" height="7" rx="1" />
+                  <rect x="14" y="3" width="7" height="7" rx="1" />
+                  <rect x="3" y="14" width="7" height="7" rx="1" />
+                  <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+              </div>
+              <p class="interest-title">Weekend game jams</p>
+              <p class="interest-desc">
+                Small, scrappy, two-day builds — a good excuse to try a new
+                stack fast.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section id="skills">
           <p class="eyebrow">skills</p>
           <div class="skill-group langs">
@@ -271,6 +413,309 @@
                 Coursework in networking, databases, and software engineering,
                 with independent self study in applied machine learning.
               </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="certifications">
+          <p class="eyebrow">certifications</p>
+
+          <div class="cert-carousel">
+            <button
+              class="cert-arrow prev"
+              id="certPrev"
+              aria-label="Previous certificate"
+            >
+              ‹
+            </button>
+            <button
+              class="cert-arrow next"
+              id="certNext"
+              aria-label="Next certificate"
+            >
+              ›
+            </button>
+            <div class="cert-track-wrap" id="certWrap">
+              <div class="cert-track" id="certTrack">
+                <div class="cert-slide">
+                  <div class="cert-bar">
+                    <div class="cert-seal" style="background: var(--signal)">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M3 20 L9 9 L12.5 14 L16 8 L21 20 Z" />
+                        <circle
+                          cx="16"
+                          cy="6"
+                          r="1.4"
+                          fill="currentColor"
+                          stroke="none"
+                        />
+                      </svg>
+                    </div>
+                    <span class="cert-bar-name">Scaled Agile Framework</span>
+                  </div>
+                  <p class="cert-title">Certified SAFe® 6 Agilist</p>
+                  <p class="cert-holder">Issued to <b>Mika Alonzo</b></p>
+                  <p class="cert-meta">
+                    valid until Jul 2025 · cert ID 04795365-6212
+                  </p>
+                  <span class="cert-status">valid</span>
+                </div>
+
+                <div class="cert-slide">
+                  <div class="cert-bar">
+                    <div class="cert-seal" style="background: var(--warm)">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <rect x="5" y="4" width="14" height="17" rx="2" />
+                        <path d="M9 4V3a1 1 0 011-1h4a1 1 0 011 1v1" />
+                        <path d="M8.5 13l2.2 2.2L15.5 10.5" />
+                      </svg>
+                    </div>
+                    <span class="cert-bar-name"
+                      >Project Management Institute</span
+                    >
+                  </div>
+                  <p class="cert-title">
+                    Certified Associate in Project Management (CAPM)®
+                  </p>
+                  <p class="cert-holder">Issued to <b>Mika Alonzo</b></p>
+                  <p class="cert-meta">issuer: Project Management Institute</p>
+                  <span class="cert-status">valid</span>
+                </div>
+
+                <div class="cert-slide">
+                  <div class="cert-bar">
+                    <div class="cert-seal" style="background: var(--sage)">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M4 12a8 8 0 0114-5.3M20 6v5h-5" />
+                        <path d="M20 12a8 8 0 01-14 5.3M4 18v-5h5" />
+                      </svg>
+                    </div>
+                    <span class="cert-bar-name">Scrum.org</span>
+                  </div>
+                  <p class="cert-title">Professional Scrum Master I (PSM I)</p>
+                  <p class="cert-holder">Issued to <b>Mika Alonzo</b></p>
+                  <p class="cert-meta">issuer: Scrum.org</p>
+                  <span class="cert-status">valid</span>
+                </div>
+
+                <div class="cert-slide">
+                  <div class="cert-bar">
+                    <div class="cert-seal" style="background: var(--ink)">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"
+                        />
+                        <path d="M9 12l2 2 4-4" />
+                      </svg>
+                    </div>
+                    <span class="cert-bar-name"
+                      >Western Governors University</span
+                    >
+                  </div>
+                  <p class="cert-title">Ethics in Technology</p>
+                  <p class="cert-holder">Issued to <b>Mika Alonzo</b></p>
+                  <p class="cert-meta">issuer: WGU</p>
+                  <span class="cert-status">valid</span>
+                </div>
+
+                <div class="cert-slide">
+                  <div class="cert-bar">
+                    <div class="cert-seal" style="background: var(--signal)">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <rect x="7" y="7" width="10" height="10" rx="1" />
+                        <path
+                          d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"
+                        />
+                      </svg>
+                    </div>
+                    <span class="cert-bar-name"
+                      >Western Governors University</span
+                    >
+                  </div>
+                  <p class="cert-title">
+                    AI Optimization Developer Certificate
+                  </p>
+                  <p class="cert-holder">Issued to <b>Mika Alonzo</b></p>
+                  <p class="cert-meta">issuer: WGU</p>
+                  <span class="cert-status">valid</span>
+                </div>
+
+                <div class="cert-slide">
+                  <div class="cert-bar">
+                    <div class="cert-seal" style="background: var(--ink-soft)">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="9" />
+                        <circle cx="12" cy="12" r="5" />
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="1"
+                          fill="currentColor"
+                          stroke="none"
+                        />
+                      </svg>
+                    </div>
+                    <span class="cert-bar-name">Lean Six Sigma</span>
+                  </div>
+                  <p class="cert-title">Lean Six Sigma White Belt</p>
+                  <p class="cert-holder">Issued to <b>Mika Alonzo</b></p>
+                  <p class="cert-meta">issuing organization</p>
+                  <span class="cert-status expired">expired</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cert-controls">
+              <div class="cert-dots" id="certDots"></div>
+            </div>
+          </div>
+
+          <p class="eyebrow badges-eyebrow">digital badges</p>
+          <div class="badge-grid">
+            <div class="badge-card">
+              <div class="badge-icon" style="background: var(--signal)">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="5" y="4" width="14" height="17" rx="2" />
+                  <path d="M9 4V3a1 1 0 011-1h4a1 1 0 011 1v1" />
+                  <path d="M8.5 13l2.2 2.2L15.5 10.5" />
+                </svg>
+              </div>
+              <p class="badge-name">
+                Certified Associate in Project Management
+              </p>
+              <p class="badge-issuer">Issuer: Project Management Institute</p>
+              <p class="badge-provider">provided by Credly</p>
+            </div>
+            <div class="badge-card">
+              <div class="badge-icon" style="background: var(--sage)">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 12a8 8 0 0114-5.3M20 6v5h-5" />
+                  <path d="M20 12a8 8 0 01-14 5.3M4 18v-5h5" />
+                </svg>
+              </div>
+              <p class="badge-name">Professional Scrum Master I</p>
+              <p class="badge-issuer">Issuer: Scrum.org</p>
+              <p class="badge-provider">provided by Credly</p>
+            </div>
+            <div class="badge-card">
+              <div class="badge-icon" style="background: var(--ink)">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"
+                  />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
+              <p class="badge-name">Ethics in Technology</p>
+              <p class="badge-issuer">Issuer: WGU</p>
+              <p class="badge-provider">provided by Credly</p>
+            </div>
+            <div class="badge-card">
+              <div class="badge-icon" style="background: var(--warm)">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3 20 L9 9 L12.5 14 L16 8 L21 20 Z" />
+                  <circle
+                    cx="16"
+                    cy="6"
+                    r="1.4"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                </svg>
+              </div>
+              <p class="badge-name">Certified SAFe® 6 Agilist</p>
+              <p class="badge-issuer">Issuer: SAFe by Scaled Agile</p>
+              <p class="badge-provider">provided by Credly</p>
+            </div>
+            <div class="badge-card">
+              <div class="badge-icon" style="background: var(--signal)">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="7" y="7" width="10" height="10" rx="1" />
+                  <path
+                    d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"
+                  />
+                </svg>
+              </div>
+              <p class="badge-name">AI Optimization Developer</p>
+              <p class="badge-issuer">Issuer: WGU</p>
+              <p class="badge-provider">official certificate</p>
             </div>
           </div>
         </section>
@@ -359,14 +804,6 @@
               <span>last 12 months</span>
             </div>
             <div class="terminal-body gh-body">
-              <img
-                class="gh-chart gh-light"
-                src="https://ghchart.rshah.org/33509e/clrkrio-dev"
-                alt="clrkrio-dev's GitHub contribution graph"
-                loading="lazy"
-                width="722"
-                height="112"
-              />
               <img
                 class="gh-chart gh-dark"
                 src="https://ghchart.rshah.org/7d97e0/clrkrio-dev"
