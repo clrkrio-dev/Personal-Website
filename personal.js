@@ -1,212 +1,479 @@
 (function () {
   "use strict";
 
-  /* =========================================================
-     THEME TOGGLE
-     ========================================================= */
+  /* =====================================================
+     THEME
+     ===================================================== */
 
-  var toggle = document.getElementById("themeToggle");
+  var root = document.documentElement;
+  var themeToggle = document.getElementById("themeToggle");
 
-  if (toggle) {
-    toggle.addEventListener("click", function () {
-      var isDark =
-        document.documentElement.getAttribute("data-theme") === "dark";
-
-      if (isDark) {
-        document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("theme", "light");
-      } else {
-        document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme", "dark");
-      }
-    });
-
-    // Load saved theme
+  function getPreferredTheme() {
     var savedTheme = localStorage.getItem("theme");
 
-    var theme =
-      savedTheme ||
-      (window.matchMedia &&
+    if (savedTheme === "dark" || savedTheme === "light") {
+      return savedTheme;
+    }
+
+    if (
+      window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light");
+    ) {
+      return "dark";
+    }
 
+    return "light";
+  }
+
+  function applyTheme(theme) {
     if (theme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
+      root.setAttribute("data-theme", "dark");
     } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
-  }
-
-  /* =========================================================
-     CERTIFICATION CAROUSEL
-     ========================================================= */
-
-  var wrap = document.getElementById("certWrap");
-  var track = document.getElementById("certTrack");
-  var dotsEl = document.getElementById("certDots");
-  var prevBtn = document.getElementById("certPrev");
-  var nextBtn = document.getElementById("certNext");
-
-  // Stop if the certification carousel does not exist
-  if (!wrap || !track) {
-    return;
-  }
-
-  var slides = Array.prototype.slice.call(track.children);
-  var current = 0;
-
-  if (slides.length === 0) {
-    return;
-  }
-
-  /* =========================================================
-     BUILD DOTS
-     ========================================================= */
-
-  var dots = [];
-
-  if (dotsEl) {
-    slides.forEach(function (_, i) {
-      var dot = document.createElement("button");
-
-      dot.className = "cert-dot" + (i === 0 ? " active" : "");
-
-      dot.setAttribute("aria-label", "Go to certificate " + (i + 1));
-
-      dot.addEventListener("click", function () {
-        goTo(i);
-      });
-
-      dotsEl.appendChild(dot);
-    });
-
-    dots = Array.prototype.slice.call(dotsEl.children);
-  }
-
-  /* =========================================================
-     SET ACTIVE SLIDE
-     ========================================================= */
-
-  function setActive(i) {
-    current = i;
-
-    slides.forEach(function (slide, index) {
-      slide.classList.toggle("active", index === i);
-    });
-
-    dots.forEach(function (dot, index) {
-      dot.classList.toggle("active", index === i);
-    });
-  }
-
-  /* =========================================================
-     MOVE TO SLIDE
-     ========================================================= */
-
-  function goTo(i) {
-    if (slides.length === 0) {
-      return;
+      root.removeAttribute("data-theme");
     }
 
-    // Loop carousel
-    i = (i + slides.length) % slides.length;
-
-    slides[i].scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest",
-    });
-
-    setActive(i);
+    localStorage.setItem("theme", theme);
   }
 
-  /* =========================================================
-     DETECT CENTER SLIDE WHILE SCROLLING
-     ========================================================= */
+  /* Apply saved theme immediately */
+  applyTheme(getPreferredTheme());
 
-  var scrollTimeout;
+  /* Theme button */
 
-  wrap.addEventListener(
-    "scroll",
-    function () {
-      clearTimeout(scrollTimeout);
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      /* Restart animation */
+      themeToggle.classList.remove("theme-click");
 
-      scrollTimeout = setTimeout(function () {
-        var wrapRect = wrap.getBoundingClientRect();
+      void themeToggle.offsetWidth;
 
-        var center = wrapRect.left + wrapRect.width / 2;
+      themeToggle.classList.add("theme-click");
 
-        var closest = 0;
-        var closestDist = Infinity;
+      var currentTheme =
+        root.getAttribute("data-theme") === "dark" ? "dark" : "light";
 
-        slides.forEach(function (slide, index) {
-          var rect = slide.getBoundingClientRect();
+      var newTheme = currentTheme === "dark" ? "light" : "dark";
 
-          var slideCenter = rect.left + rect.width / 2;
+      applyTheme(newTheme);
+    });
+  }
 
-          var distance = Math.abs(slideCenter - center);
+  /* =====================================================
+     SCROLL REVEAL
+     ===================================================== */
 
-          if (distance < closestDist) {
-            closestDist = distance;
-            closest = index;
+  var animatedElements = document.querySelectorAll(
+    [
+      "section",
+      ".interest-card",
+      ".skill-group",
+      ".tl-item",
+      ".cert-slide",
+      ".badge-card",
+      ".proj-card",
+      ".terminal",
+      ".about-grid",
+      ".hero-text",
+      ".hero-graphic",
+    ].join(","),
+  );
+
+  animatedElements.forEach(function (element, index) {
+    element.classList.add("scroll-reveal");
+
+    var delay = (index % 6) * 70;
+
+    element.style.setProperty("--reveal-delay", delay + "ms");
+  });
+
+  /* Intersection Observer */
+
+  if ("IntersectionObserver" in window) {
+    var revealObserver = new IntersectionObserver(
+      function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+
+        rootMargin: "0px 0px -50px 0px",
+      },
+    );
+
+    animatedElements.forEach(function (element) {
+      revealObserver.observe(element);
+    });
+  } else {
+    animatedElements.forEach(function (element) {
+      element.classList.add("is-visible");
+    });
+  }
+
+  /* =====================================================
+     BUTTON PRESS ANIMATION
+     ===================================================== */
+
+  var buttons = document.querySelectorAll(".btn");
+
+  buttons.forEach(function (button) {
+    button.addEventListener("pointerdown", function () {
+      button.classList.add("btn-pressed");
+    });
+
+    button.addEventListener("pointerup", function () {
+      button.classList.remove("btn-pressed");
+    });
+
+    button.addEventListener("pointerleave", function () {
+      button.classList.remove("btn-pressed");
+    });
+
+    button.addEventListener("pointercancel", function () {
+      button.classList.remove("btn-pressed");
+    });
+  });
+
+  /* =====================================================
+     CERTIFICATE CAROUSEL
+     ===================================================== */
+
+  var certWrap = document.getElementById("certWrap");
+
+  var certTrack = document.getElementById("certTrack");
+
+  var certDots = document.getElementById("certDots");
+
+  var certPrev = document.getElementById("certPrev");
+
+  var certNext = document.getElementById("certNext");
+
+  if (certWrap && certTrack) {
+    var slides = Array.prototype.slice.call(certTrack.children);
+
+    var current = 0;
+
+    var dots = [];
+
+    if (slides.length > 0) {
+      /* Create dots */
+
+      if (certDots) {
+        slides.forEach(function (_, index) {
+          var dot = document.createElement("button");
+
+          dot.type = "button";
+
+          dot.className = "cert-dot" + (index === 0 ? " active" : "");
+
+          dot.setAttribute("aria-label", "Go to certificate " + (index + 1));
+
+          dot.addEventListener("click", function () {
+            goTo(index);
+          });
+
+          certDots.appendChild(dot);
+        });
+
+        dots = Array.prototype.slice.call(certDots.children);
+      }
+
+      /* Set active certificate */
+
+      function setActive(index) {
+        current = index;
+
+        slides.forEach(function (slide, slideIndex) {
+          var active = slideIndex === index;
+
+          slide.classList.toggle("active", active);
+
+          if (active) {
+            slide.classList.remove("cert-enter");
+
+            void slide.offsetWidth;
+
+            slide.classList.add("cert-enter");
           }
         });
 
-        setActive(closest);
-      }, 80);
-    },
-    {
-      passive: true,
-    },
-  );
+        dots.forEach(function (dot, dotIndex) {
+          dot.classList.toggle("active", dotIndex === index);
+        });
+      }
 
-  /* =========================================================
-     PREVIOUS BUTTON
-     ========================================================= */
+      /* Go to certificate */
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", function () {
-      goTo(current - 1);
+      function goTo(index) {
+        index = (index + slides.length) % slides.length;
+
+        slides[index].scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest",
+        });
+
+        setActive(index);
+      }
+
+      /* Previous */
+
+      if (certPrev) {
+        certPrev.addEventListener("click", function () {
+          goTo(current - 1);
+        });
+      }
+
+      /* Next */
+
+      if (certNext) {
+        certNext.addEventListener("click", function () {
+          goTo(current + 1);
+        });
+      }
+
+      /* Detect manually scrolled slide */
+
+      var scrollTimeout;
+
+      certWrap.addEventListener(
+        "scroll",
+        function () {
+          clearTimeout(scrollTimeout);
+
+          scrollTimeout = setTimeout(function () {
+            var wrapRect = certWrap.getBoundingClientRect();
+
+            var center = wrapRect.left + wrapRect.width / 2;
+
+            var closest = 0;
+
+            var closestDistance = Infinity;
+
+            slides.forEach(function (slide, index) {
+              var rect = slide.getBoundingClientRect();
+
+              var slideCenter = rect.left + rect.width / 2;
+
+              var distance = Math.abs(slideCenter - center);
+
+              if (distance < closestDistance) {
+                closestDistance = distance;
+
+                closest = index;
+              }
+            });
+
+            setActive(closest);
+          }, 80);
+        },
+        {
+          passive: true,
+        },
+      );
+
+      /* Keyboard controls */
+
+      document.addEventListener("keydown", function (event) {
+        var rect = certWrap.getBoundingClientRect();
+
+        var visible = rect.bottom > 0 && rect.top < window.innerHeight;
+
+        if (!visible) {
+          return;
+        }
+
+        if (event.key === "ArrowLeft") {
+          goTo(current - 1);
+        }
+
+        if (event.key === "ArrowRight") {
+          goTo(current + 1);
+        }
+      });
+
+      /* Start */
+
+      setActive(0);
+    }
+  }
+
+  /* =====================================================
+     INTEREST CARD ICON ANIMATION
+     ===================================================== */
+
+  var interestCards = document.querySelectorAll(".interest-card");
+
+  interestCards.forEach(function (card) {
+    card.addEventListener("mouseenter", function () {
+      var icon = card.querySelector(".interest-icon");
+
+      if (!icon) {
+        return;
+      }
+
+      icon.classList.remove("icon-animate");
+
+      void icon.offsetWidth;
+
+      icon.classList.add("icon-animate");
+    });
+  });
+
+  /* =====================================================
+     SKILL TAG STAGGER
+     ===================================================== */
+
+  var skillTags = document.querySelectorAll(".skill-tags .tag");
+
+  skillTags.forEach(function (tag, index) {
+    tag.style.setProperty("--tag-delay", index * 35 + "ms");
+  });
+
+  /* =====================================================
+     PROJECT CARD HOVER
+     ===================================================== */
+
+  var projectCards = document.querySelectorAll(".proj-card");
+
+  projectCards.forEach(function (card) {
+    card.addEventListener("mousemove", function (event) {
+      var rect = card.getBoundingClientRect();
+
+      var x = event.clientX - rect.left;
+
+      var y = event.clientY - rect.top;
+
+      var rotateX = (y / rect.height - 0.5) * -3;
+
+      var rotateY = (x / rect.width - 0.5) * 3;
+
+      card.style.transform =
+        "translateY(-9px) " +
+        "perspective(700px) " +
+        "rotateX(" +
+        rotateX +
+        "deg) " +
+        "rotateY(" +
+        rotateY +
+        "deg)";
+    });
+
+    card.addEventListener("mouseleave", function () {
+      card.style.transform = "";
+    });
+  });
+
+  /* =====================================================
+     TERMINAL CURSOR EFFECT
+     ===================================================== */
+
+  var terminal = document.querySelector(".terminal");
+
+  if (terminal) {
+    terminal.classList.add("terminal-ready");
+  }
+
+  /* =====================================================
+     ACTIVE NAVIGATION ON SCROLL
+     ===================================================== */
+
+  var navLinks = document.querySelectorAll(".nav-links a[href^='#']");
+
+  var sections = document.querySelectorAll("section[id]");
+
+  if (navLinks.length && sections.length && "IntersectionObserver" in window) {
+    var navObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          var id = entry.target.id;
+
+          navLinks.forEach(function (link) {
+            var href = link.getAttribute("href");
+
+            link.classList.toggle("active", href === "#" + id);
+          });
+        });
+      },
+      {
+        threshold: 0.35,
+      },
+    );
+
+    sections.forEach(function (section) {
+      navObserver.observe(section);
     });
   }
 
-  /* =========================================================
-     NEXT BUTTON
-     ========================================================= */
+  /* =====================================================
+     SMOOTH ANCHOR SCROLL
+     ===================================================== */
 
-  if (nextBtn) {
-    nextBtn.addEventListener("click", function () {
-      goTo(current + 1);
-    });
-  }
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest('a[href^="#"]');
 
-  /* =========================================================
-     KEYBOARD CONTROL
-     ========================================================= */
-
-  document.addEventListener("keydown", function (event) {
-    // Only control carousel when it is visible
-    var rect = wrap.getBoundingClientRect();
-
-    var isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
-
-    if (!isVisible) {
+    if (!link) {
       return;
     }
 
-    if (event.key === "ArrowLeft") {
-      goTo(current - 1);
+    var targetId = link.getAttribute("href");
+
+    if (!targetId || targetId === "#") {
+      return;
     }
 
-    if (event.key === "ArrowRight") {
-      goTo(current + 1);
+    var target = document.querySelector(targetId);
+
+    if (!target) {
+      return;
     }
+
+    event.preventDefault();
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   });
 
-  /* =========================================================
-     INITIAL STATE
-     ========================================================= */
+  /* =====================================================
+     MOUSE PARALLAX FOR HERO GRAPHIC
+     ===================================================== */
 
-  setActive(0);
+  var heroGraphic = document.querySelector(".hero-graphic");
+
+  if (
+    heroGraphic &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    document.addEventListener("mousemove", function (event) {
+      var x = (event.clientX / window.innerWidth - 0.5) * 6;
+
+      var y = (event.clientY / window.innerHeight - 0.5) * 6;
+
+      heroGraphic.style.transform = "translate(" + x + "px, " + y + "px)";
+    });
+  }
+
+  /* =====================================================
+     RESET PARALLAX WHEN REDUCED MOTION
+     ===================================================== */
+
+  window.addEventListener("resize", function () {
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+      heroGraphic
+    ) {
+      heroGraphic.style.transform = "";
+    }
+  });
 })();
