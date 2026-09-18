@@ -738,14 +738,16 @@ header.nav {
   letter-spacing: 0.03em;
 }
 .cert-seal {
-  width: 64px;
-  height: 64px;
   flex: 0 0 auto;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+}
+.cert-seal img {
+  width: 80px;
+  height: 80px;
 }
 .cert-seal svg {
   width: 34px;
